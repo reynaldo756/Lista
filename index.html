@@ -6,35 +6,51 @@
         <meta charset="UTF-8"/>
 
         <title>Linguagem JavaScript</title>
+        <link rel="stylesheet" href="index.css">
 
     </head>
 
     <body>
-        <h1>Informações do aluno</h1>
-        <p>Nome: Reinaldo Vinicius de souza romagnoli</p>
-        <p>Turma: 2020</p>
+        <div style="text-align: center;">
+            <h1>Informações do aluno</h1>
+            <p>Nome: Reinaldo Vinicius de Souza Romagnoli</p>
+            <p>Turma: 2020</p>
 
-        <h2>Soluções de Exercicios</h2>
+            <h2>Soluções de Exercicios</h2><br>
+        </div>
+        <div>
         <p>1 - Escreva um programa que mostre a soma de todos 
             os divisores de um dado número X. Um divisor é qualquer número menor
              que X cujo resto da divisão é igual a 0.</p><br>
+            <pre><code>
+                const num = document.querySelector("#send1");
 
-             <code>
-                let num = 8;
-                var result;
-                var result_1 = 0;
-                var passo
+                num.addEventListener("click", function(){
+                    
+                    const at1 = document.querySelector("#at1");
+                    
+                    const value = at1.value;
+                    var result;
+                    var result_1 = 0;
+                    var passo;
 
-                for (passo = 1; passo < num; passo++  ){
-                    if(num % passo === 0){
-                        result = passo;
-                        result_1 = result_1 + result;
+                    for (passo = 1; passo < value; passo++  ){
+                        if(value % passo === 0){
+                            result = passo;
+                            result_1 = result_1 + result;
+                        }
                     }
-                }
 
-                console.log(result_1);
-             </code>
+                    alert(result_1);
+                })
+            </code></pre>
+
+            <input type="text" name="at1" id="at1" placeholder="Digite um numero:"></input>
+            <input type="submit" id="send1" value="Enviar">
+            <script src="at1.js" defer></script>
+        </div>
         
+        <div>
         <p>2 – Considere dois pontos no espaço 2D com as seguintes coordenadas:
              A(x1, y1) e B(x2,y2).  A distância euclidiana D,
               entre estes pontos é dada pela seguinte fórmula:
@@ -42,18 +58,79 @@
               Escreva um programa que calcule tal distância para
                coordenadas de dois pontos informados pelo usuário.</p><br>
             
+            <pre><code>
+                const cord = document.querySelector("#send2");
+
+                cord.addEventListener("click", function(){
+
+                    const x1 = document.querySelector("#x1").value;
+                    const x2 = document.querySelector("#x2").value;
+                    const y1 = document.querySelector("#y1").value;
+                    const y2 = document.querySelector("#y2").value;
 
 
+                    var x3 = Math.pow(x2 - x1, 2);
+                    var y3 = Math.pow(y2 - y1, 2);
+
+                    let distancia = Math.sqrt(x3 + y3);
+
+                    alert(distancia);
+                })
+            </code></pre>
+            <form></form>
+            
+            <input type="text" name="x1" id="x1" placeholder="Digite a primeira cordenada:"></input><br><br>
+            <input type="text" name="x2" id="x2" placeholder="Digite a segunda cordenada:"></input><br><br>
+            <input type="text" name="y1" id="y1" placeholder="Digite a terceira cordenada:"></input><br><br>
+            <input type="text" name="y2" id="y2" placeholder="Digite a quarta cordenada:"></input><br><br>
+            <input type="submit" id="send2" value="Enviar">
+            <script src="at2.js" defer></script>
+        </div>
+
+        <div>
         <p>3 - Dada uma frase de entrada por um usuário, faça um programa que conte
              a ocorrência de cada palavra nesta frase. O programa não deve distinguir letras maiúsculas e minúsculas.
             Exemplo: “Faça chuva ou faça sol.” 
             Resultado: faça (2), chuva (1), ou, (1), sol (1)
             </p><br>
-            <script>
+            <pre><code>
+                const cont = document.querySelector("#send3");
 
-            </script>
+                cont.addEventListener("click", function(){
+                        
+                        const at3 = document.querySelector("#at3").value;
+                        var frases = at3.toUpperCase();
+                        var palavras = frases.split(" ");
+
+                        function countItems(palavras) {
+                                const countMap = Object.create(null);
+                        
+                                for (const element of palavras) {
+                                if (!countMap[element]) {
+                                countMap[element] = 1;
+                                } else {
+                                countMap[element] += 1;
+                                }
+                                }
+                                
+                                return countMap;
+                        }
+
+                        resultado = (countItems(palavras));
+                        let r_json = JSON.stringify(resultado);
+
+                        alert(r_json);
+                        
+                    
+                })
+            </code></pre>
+            <input type="text" name="at3" id="at3" placeholder="Digite uma frase:"></input>
+            <input type="submit" id="send3" value="Enviar">
+            <script src="at3.js" defer></script>
+            <p id="digito"></p>
+        </div>
         
-
+        <div>
         <p>4 – Faça um programa que leia uma string de números como entrada de um usuário que representa uma matriz e
              diga qual dimensão dela (quantidade de linhas e colunas).
               As linhas da matriz são separadas por um caractere de ponto e vírgula ‘;’
@@ -61,12 +138,19 @@
             Entrada: 1 4 6 8; 3 5 6 7; 1 3 2 4
             Resultado: Essa é uma matriz de dimensão 3 x 4.
             </p><br>
-            <script>
-                entrada = "1 4 6 8; 3 5 6 7; 1 3 2 4";
+            <pre><code>
+                var sequencia = "1 4 6 8; 3 5 6 7; 1 3 2 4";
+                var matriz = sequencia.split(';');
 
-                
-            </script>
-
+                for (i = 0; i < matriz.length; i++) {
+                    console.log(matriz[i]);
+                }
+            </code></pre>
+            <input type="text" name="at4" id="at4" placeholder="Digite numeros para sua matriz:"></input>
+            <input type="submit" id="send4" value="Enviar">
+            <script src="at4.js" defer></script>
+        </div>
+        <div>
         <p>5 – Dado um número inteiro positivo N como entrada de um usuário, escreva um programa que mostre
              os primeiros N números da sequência de Fibonacci.
               (A sequência de Fibonacci é iniciada por 0 e 1, e o próximo número é sempre a soma dos dois últimos).
@@ -74,9 +158,27 @@
             Entrada:  8
             Resultado: 0, 1, 1, 2, 3, 5, 8, 13
             </p><br>
-            <script>
+            <pre><code>
+                const fibo = document.querySelector("#send5");
 
-            </script>
+                fibo.addEventListener("click", function(){
+                const at5 = document.querySelector("#at5").value;
+
+                var fibonacci = [];
+                fibonacci[0] = 0;
+                fibonacci[1] = 1;
+                for (var i = 2; i < at5; i++) {
+                    fibonacci[i] = fibonacci[i - 2] + fibonacci[i - 1];
+                }
+
+                alert(fibonacci);
+
+                })
+            </code></pre>
+            <input type="text" name="at5" id="at5" placeholder="Digite numeros para sua matriz:"></input>
+            <input type="submit" id="send5" value="Enviar">
+            <script src="at5.js" defer></script>
+        </div>
     </body>
 
 </html>

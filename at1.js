@@ -1,14 +1,20 @@
+const num = document.querySelector("#send1");
 
-let num = 8;
-var result;
-var result_1 = 0;
-var passo
+                num.addEventListener("click", function(){
+                    
+                    const at1 = document.querySelector("#at1");
+                    
+                    const value = at1.value;
+                    var result;
+                    var result_1 = 0;
+                    var passo;
 
-for (passo = 1; passo < num; passo++  ){
-    if(num % passo === 0){
-        result = passo;
-        result_1 = result_1 + result;
-    }
-}
+                    for (passo = 1; passo < value; passo++  ){
+                        if(value % passo === 0){
+                            result = passo;
+                            result_1 = result_1 + result;
+                        }
+                    }
 
-console.log(result_1);
+                    alert(result_1);
+                })

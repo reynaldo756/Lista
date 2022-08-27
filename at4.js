@@ -1,7 +1,17 @@
-var sequencia = "1 4 6 8; 3 5 6 7; 1 3 2 4";
-var matriz = sequencia.split(';');
+const matrix = document.querySelector("#send4");
 
-for (i = 0; i < matriz.length; i++) {
-    console.log(matriz[i]);
-}
+    matrix.addEventListener("click", function(){
+    
+    const at4 = document.querySelector("#at4").value;
+    resultado = [];
+    var matriz = at4.split(';');
 
+    for (i = 0; i < matriz.length; i++) {
+        resultado = (matriz[i]);
+    }
+
+    console.log(resultado);
+    })
+
+
+ 
